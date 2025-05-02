@@ -1077,18 +1077,24 @@
                             }
                         }
 
-                        function searchProducts() {
-                            const query = document.getElementById('productSearch').value.trim().toLowerCase();
-                            const productCards = document.querySelectorAll('.product-card');
-                            productCards.forEach(card => {
-                                const title = card.querySelector('.product-title').textContent.toLowerCase();
-                                if (title.includes(query)) {
-                                    card.style.display = 'block';
-                                } else {
-                                    card.style.display = 'none';
-                                }
-                            });
-                        }
+                     function performSearch() {
+        const query = document.getElementById('searchBar').value.toLowerCase();
+        const dataList = document.querySelectorAll('#dataList li');
+        const results = document.getElementById('searchResults');
+        results.innerHTML = ''; // Clear previous results
+
+        dataList.forEach(item => {
+            if (item.textContent.toLowerCase().includes(query)) {
+                const resultItem = document.createElement('li');
+                resultItem.textContent = item.textContent;
+                results.appendChild(resultItem);
+            }
+        });
+
+        if (!results.hasChildNodes()) {
+            results.textContent = 'No results found';
+        }
+    }
 
 
                         document.querySelector('.newsletter-form').addEventListener('submit', (event) => {
