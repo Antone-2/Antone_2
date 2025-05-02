@@ -638,6 +638,18 @@
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
+            @media only screen and (max-width:600px) {
+                .nav {
+                    flex-direction: column;
+                    text-align:center;
+                }
+                .nav a{
+                    padding:8px;
+                    font-size:14px;
+                }
+                .footer{
+                    font-size: 12px;
+                }
 
             @media (max-width: 576px) {
                 .category-card {
